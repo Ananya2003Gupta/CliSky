@@ -1,0 +1,8 @@
+History Weather API
+{"message":"Count: 1","cod":"200","city_id":4298960,"calctime":0.004890329,"cnt":1,"list":[{"dt":1672513200,"main":{"temp":286.94,"feels_like":286.83,"pressure":1013,"humidity":94,"temp_min":286.02,"temp_max":287.51},"wind":{"speed":2.75,"deg":228,"gust":7.18},"clouds":{"all":100},"weather":[{"id":500,"main":"Rain","description":"light rain","icon":"10d"}],"rain":{"1h":0.62}}]}
+
+Current Weather API
+{'coord': {'lon': -0.1257, 'lat': 51.5085}, 'weather': [{'id': 800, 'main': 'Clear', 'description': 'clear sky', 'icon': '01d'}], 'base': 'stations', 'main': {'temp': 17.15, 'feels_like': 16.46, 'temp_min': 14.86, 'temp_max': 18.94, 'pressure': 1023, 'humidity': 59}, 'visibility': 10000, 'wind': {'speed': 3.6, 'deg': 50}, 'clouds': {'all': 7}, 'dt': 1685870488, 'sys': {'type': 2, 'id': 268730, 'country': 'GB', 'sunrise': 1685850435, 'sunset': 1685909435}, 'timezone': 3600, 'id': 2643743, 'name': 'London', 'cod': 200}
+
+Forecast Weather
+{'cod': '200', 'message': 0, 'cnt': 1, 'list': [{'dt': 1685880000, 'main': {'temp': 18.37, 'feels_like': 17.59, 'temp_min': 18.37, 'temp_max': 21.08, 'pressure': 1023, 'sea_level': 1023, 'grnd_level': 1021, 'humidity': 51, 'temp_kf': -2.71}, 'weather': [{'id': 801, 'main': 'Clouds', 'description': 'few clouds', 'icon': '02d'}], 'clouds': {'all': 13}, 'wind': {'speed': 4.67, 'deg': 59, 'gust': 5.57}, 'visibility': 10000, 'pop': 0, 'sys': {'pod': 'd'}, 'dt_txt': '2023-06-04 12:00:00'}], 'city': {'id': 2643743, 'name': 'London', 'coord': {'lat': 51.5085, 'lon': -0.1257}, 'country': 'GB', 'population': 1000000, 'timezone': 3600, 'sunrise': 1685850435, 'sunset': 1685909435}}
