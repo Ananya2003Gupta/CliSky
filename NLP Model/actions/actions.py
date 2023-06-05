@@ -14,7 +14,7 @@ class ActionGetCurrentWeather(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         location = tracker.get_slot("location")
-        api_key = "<openweathermap_api_key>"
+        api_key = "<OPENWEATHERMAP_API_KEY>"
         url = f"http://api.openweathermap.org/data/2.5/weather?q={location}&appid={api_key}&units=metric"
 
         response = requests.get(url).json()
@@ -44,7 +44,7 @@ class ActionGetWeatherForecast(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         location = tracker.get_slot("location")
-        api_key = "<openweathermap_api_key>"
+        api_key = "<OPENWEATHERMAP_API_KEY>"
         url = f"http://api.openweathermap.org/data/2.5/forecast?q={location}&appid={api_key}&units=metric"
 
         response = requests.get(url).json()
@@ -72,20 +72,31 @@ class ActionGetWeatherForecast(Action):
 
 
 class ActionGetHistoricalWeatherForecast(Action):
-    def name(self) -> Text:
+    def name(self):
         return "action_get_historical_weather_forecast"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    def run(self, dispatcher, tracker, domain):
         location = tracker.get_slot("location")
         date = tracker.get_slot("date")
 
-        # Perform the necessary operations to retrieve historical weather forecast information
-        # based on the location and date, using your preferred data source or API.
+        # Convert the date to the required format for the API request
+        formatted_date = datetime.strptime(date, "%Y-%m-%d").strftime("%s")
 
-        message = f"The historical weather forecast for {location} on {date} is as follows: <insert details>"
-        dispatcher.utter_message(text=message)
+        # Make the API request to fetch historical weather data
+        api_key = "OPENWEATHERMAP_API_KEY"
+        url = f"http://api.openweathermap.org/data/2.5/onecall/timemachine?lat={location['latitude']}&lon={location['longitude']}&dt={formatted_date}&appid={api_key}"
+        response = requests.get(url)
+        data = response.json()
+
+        if "current" in data and "temp" in data["current"] and "weather" in data["current"]:
+            temperature = data["current"]["temp"]
+            weather_description = data["current"]["weather"][0]["description"]
+            response_text = f"The historical weather on {date} in {location['city']} was {temperature}°C with {weather_description}."
+        else:
+            response_text = "I couldn't retrieve the historical weather data for the specified location and date."
+
+        dispatcher.utter_message(response_text)
+
         return []
 
 
