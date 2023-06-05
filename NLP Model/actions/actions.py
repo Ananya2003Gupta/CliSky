@@ -4,6 +4,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 import requests
+from base import *
 
 
 def extract_city_name(text):
@@ -23,6 +24,7 @@ class ActionGetCurrentWeather(Action):
     def run(self, dispatcher, tracker, domain):
         # Extract necessary slots from the tracker
         user_message = tracker.latest_message.get("text")
+
 
         # Extract city name from user input using regex
         city = self.extract_city_name(user_message)
@@ -86,6 +88,7 @@ class ActionGetWeatherForecast(Action):
         # Send the response back to the user
         dispatcher.utter_message(response_text)
 
+
         return []
 
 
@@ -106,8 +109,14 @@ class ActionGetHistoricalWeatherForecast(Action):
             dispatcher.utter_message(response_text)
             return []
 
-        # Convert the date to the required format for the API request
-        formatted_date = datetime.strptime(date, "%Y-%m-%d").strftime("%s")
+        # # Convert the date to the required format for the API request
+        # formatted_date = datetime.strptime(date, "%Y-%m-%d").strftime("%s")
+
+        # # Make the API request to fetch historical weather data
+        # api_key = "OPENWEATHERMAP_API_KEY"
+        # url = f"http://api.openweathermap.org/data/2.5/onecall/timemachine?lat={location['latitude']}&lon={location['longitude']}&dt={formatted_date}&appid={api_key}"
+        # response = requests.get(url)
+        # data = response.json()
 
         # Make the API request to fetch historical weather data
         api_key = "OPENWEATHERMAP_API_KEY"
@@ -124,7 +133,6 @@ class ActionGetHistoricalWeatherForecast(Action):
 
         # Send the response back to the user
         dispatcher.utter_message(response_text)
-
         return []
 
 
