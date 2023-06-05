@@ -1,3 +1,4 @@
+import re
 from datetime import datetime
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
@@ -6,71 +7,87 @@ import requests
 from base import *
 
 
+def extract_city_name(text):
+    # Use regex pattern to extract city name from user input
+    pattern = r"\[(.*?)\]\(city\)"
+    matches = re.findall(pattern, text)
+    if matches:
+        return matches[0]
+    else:
+        return None
+
+
 class ActionGetCurrentWeather(Action):
-    def name(self) -> Text:
+    def name(self):
         return "action_get_current_weather"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    def run(self, dispatcher, tracker, domain):
+        # Extract necessary slots from the tracker
+        user_message = tracker.latest_message.get("text")
 
-        location = tracker.get_slot("location")
-        # api_key = "<OPENWEATHERMAP_API_KEY>"
-        # url = f"http://api.openweathermap.org/data/2.5/weather?q={location}&appid={api_key}&units=metric"
 
-        # response = requests.get(url).json()
+        # Extract city name from user input using regex
+        city = self.extract_city_name(user_message)
 
-        # if response["cod"] == "404":
-        #     dispatcher.utter_message(text="Sorry, I couldn't find the weather information for that location.")
-        # else:
-        #     weather_description = response["weather"][0]["description"]
-        #     temperature = response["main"]["temp"]
-        #     humidity = response["main"]["humidity"]
-        #     wind_speed = response["wind"]["speed"]
+        if not city:
+            response_text = "I couldn't detect the city in your input. Please provide a valid city name."
+            dispatcher.utter_message(response_text)
+            return []
 
-        #     message = f"The current weather in {location} is {weather_description} with a temperature of {temperature}°C. " \
-        #               f"The humidity is {humidity}% and the wind speed is {wind_speed} m/s."
+        # Make the API request to fetch current weather data
+        api_key = "OPENWEATHERMAP_API_KEY"
+        url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
+        response = requests.get(url)
+        data = response.json()
 
-        #     dispatcher.utter_message(text=message)
+        if "main" in data and "temp" in data["main"] and "weather" in data:
+            temperature = data["main"]["temp"]
+            weather_description = data["weather"][0]["description"]
+            response_text = f"The current weather in {city} is {temperature}°C with {weather_description}."
+        else:
+            response_text = "I couldn't retrieve the current weather data for the specified location."
 
-        current_weather(location)
+        # Send the response back to the user
+        dispatcher.utter_message(response_text)
 
         return []
 
 
 class ActionGetWeatherForecast(Action):
-    def name(self) -> Text:
+    def name(self):
         return "action_get_weather_forecast"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    def run(self, dispatcher, tracker, domain):
+        # Extract necessary slots from the tracker
+        user_message = tracker.latest_message.get("text")
 
-        location = tracker.get_slot("location")
-        # api_key = "<OPENWEATHERMAP_API_KEY>"
-        # url = f"http://api.openweathermap.org/data/2.5/forecast?q={location}&appid={api_key}&units=metric"
+        # Extract city name from user input using regex
+        city = extract_city_name(user_message)
 
-        # response = requests.get(url).json()
+        if not city:
+            response_text = "I couldn't detect the city in your input. Please provide a valid city name."
+            dispatcher.utter_message(response_text)
+            return []
 
-        # if response["cod"] == "404":
-        #     dispatcher.utter_message(text="Sorry, I couldn't find the weather forecast for that location.")
-        # else:
-        #     forecast_list = response["list"]
+        # Make the API request to fetch weather forecast data
+        api_key = "OPENWEATHERMAP_API_KEY"
+        url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={api_key}"
+        response = requests.get(url)
+        data = response.json()
 
-        #     message = f"The weather forecast for {location} is as follows:\n"
+        forecasts = data.get("list", [])
+        if forecasts:
+            response_text = f"Here is the weather forecast for {city}:\n"
+            for forecast in forecasts:
+                temperature = forecast["main"]["temp"]
+                weather_description = forecast["weather"][0]["description"]
+                response_text += f"- Temperature: {temperature}°C, Weather: {weather_description}\n"
+        else:
+            response_text = "I couldn't retrieve the weather forecast for the specified location."
 
-        #     for forecast in forecast_list:
-        #         forecast_datetime = datetime.fromtimestamp(forecast["dt"])
-        #         forecast_date = forecast_datetime.strftime("%Y-%m-%d")
-        #         forecast_time = forecast_datetime.strftime("%H:%M:%S")
-        #         weather_description = forecast["weather"][0]["description"]
-        #         temperature = forecast["main"]["temp"]
+        # Send the response back to the user
+        dispatcher.utter_message(response_text)
 
-        #         message += f"- Date: {forecast_date}, Time: {forecast_time}, Weather: {weather_description}, " \
-        #                    f"Temperature: {temperature}°C\n"
-
-        #     dispatcher.utter_message(text=message)
-        forecast_weather(location)
 
         return []
 
@@ -80,8 +97,17 @@ class ActionGetHistoricalWeatherForecast(Action):
         return "action_get_historical_weather_forecast"
 
     def run(self, dispatcher, tracker, domain):
-        location = tracker.get_slot("location")
+        # Extract necessary slots from the tracker
         date = tracker.get_slot("date")
+        user_message = tracker.latest_message.get("text")
+
+        # Extract city name from user input using regex
+        city = self.extract_city_name(user_message)
+
+        if not city:
+            response_text = "I couldn't detect the city in your input. Please provide a valid city name."
+            dispatcher.utter_message(response_text)
+            return []
 
         # # Convert the date to the required format for the API request
         # formatted_date = datetime.strptime(date, "%Y-%m-%d").strftime("%s")
@@ -92,17 +118,21 @@ class ActionGetHistoricalWeatherForecast(Action):
         # response = requests.get(url)
         # data = response.json()
 
-        # if "current" in data and "temp" in data["current"] and "weather" in data["current"]:
-        #     temperature = data["current"]["temp"]
-        #     weather_description = data["current"]["weather"][0]["description"]
-        #     response_text = f"The historical weather on {date} in {location['city']} was {temperature}°C with {weather_description}."
-        # else:
-        #     response_text = "I couldn't retrieve the historical weather data for the specified location and date."
+        # Make the API request to fetch historical weather data
+        api_key = "OPENWEATHERMAP_API_KEY"
+        url = f"http://api.openweathermap.org/data/2.5/onecall/timemachine?q={city}&dt={formatted_date}&appid={api_key}"
+        response = requests.get(url)
+        data = response.json()
 
-        # dispatcher.utter_message(response_text)
+        if "current" in data and "temp" in data["current"] and "weather" in data["current"]:
+            temperature = data["current"]["temp"]
+            weather_description = data["current"]["weather"][0]["description"]
+            response_text = f"The historical weather on {date} in {city} was {temperature}°C with {weather_description}."
+        else:
+            response_text = "I couldn't retrieve the historical weather data for the specified location and date."
 
-        history_weather(location, date)
-
+        # Send the response back to the user
+        dispatcher.utter_message(response_text)
         return []
 
 
