@@ -175,7 +175,7 @@ def forecast_weather(city):
 
 def history_weather(city, date):
     """Get weather history for a city"""
-    #! Date formate is YYYY-MM-DD
+    #! Date format is YYYY-MM-DD
     data = get_history(city, date)
     display_weather(data["list"][0])
 
