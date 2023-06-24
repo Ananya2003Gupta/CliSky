@@ -30,7 +30,7 @@ def get_city_weather(city):
 def get_weather_forecast(city):
     """Get weather forecast for a city"""
     city = city.lower().strip()
-    url = f'https://api.openweathermap.org/data/2.5/forecast?q={city}&cnt=1&appid={API_KEY}&units=metric'
+    url = f'https://api.openweathermap.org/data/2.5/forecast?q={city}&cnt=2&appid={API_KEY}&units=metric'
     response = requests.get(url)
     if response.status_code == 200:
         return response.json()
@@ -123,7 +123,7 @@ def set_color_on_code(weather_code):
 ####################* Printers
 
 def display_weather(data):
-    """Display weather (forecast/current) data"""
+    """Display weather (current) data"""
     s = ""
     if data:
         weather_code = data['weather'][0]['id']
@@ -146,23 +146,24 @@ def display_weather(data):
     return s
 
 def display_forecast_weather(data):
-    """Display weather (forecast/current) data"""
+    """Display weather (forecast) data"""
     s = ""
+    # print(data)
     if data:
-        weather_code = data['list'][0]['weather'][0]['id']
+        weather_code = data['list'][1]['weather'][0]['id']
         s += set_color_on_code(weather_code)
-        s += (get_ascii_from_image_url(f"https://openweathermap.org/img/wn/{data['list'][0]['weather'][0]['icon']}@4x.png"))
+        s += (get_ascii_from_image_url(f"https://openweathermap.org/img/wn/{data['list'][1]['weather'][0]['icon']}@4x.png"))
         s += (f"{'Weather at:':^{PADDING}}{data['city']['name']}, {data['city']['country']}\n")
-        s += (f"{'Description:':^{PADDING}}{data['list'][0]['weather'][0]['description'].capitalize()}\n")
-        s += (f"{'Temp:':^{PADDING}}{data['list'][0]['main']['temp']}°C\n")
-        s += (f"{'Min/Max Temp:':^{PADDING}}{data['list'][0]['main']['temp_min']}°C / {data['list'][0]['main']['temp_max']}°C\n")
-        s += (f"{'Feels like:':^{PADDING}}{data['list'][0]['main']['feels_like']}°C\n")
-        s += (f"{'Humidity:':^{PADDING}}{data['list'][0]['main']['humidity']}%\n")
-        s += (f"{'Wind:':^{PADDING}}{data['list'][0]['wind']['speed']}m/s\n")
-        s += (f"{'Pressure:':^{PADDING}}{data['list'][0]['main']['pressure']}hPa\n")
-        s += (f"{'Visibility:':^{PADDING}}{data['list'][0]['visibility']/1000}km\n")
-        s += (f"{'Sunrise:':^{PADDING}}{datetime.datetime.fromtimestamp(data['city']['sunrise'])}\n")
-        s += (f"{'Sunset:':^{PADDING}}{datetime.datetime.fromtimestamp(data['city']['sunset'])}\n")
+        s += (f"{'Description:':^{PADDING}}{data['list'][1]['weather'][0]['description'].capitalize()}\n")
+        s += (f"{'Temp:':^{PADDING}}{data['list'][1]['main']['temp']}°C\n")
+        s += (f"{'Min/Max Temp:':^{PADDING}}{data['list'][1]['main']['temp_min']}°C / {data['list'][1]['main']['temp_max']}°C\n")
+        s += (f"{'Feels like:':^{PADDING}}{data['list'][1]['main']['feels_like']}°C\n")
+        s += (f"{'Humidity:':^{PADDING}}{data['list'][1]['main']['humidity']}%\n")
+        s += (f"{'Wind:':^{PADDING}}{data['list'][1]['wind']['speed']}m/s\n")
+        s += (f"{'Pressure:':^{PADDING}}{data['list'][1]['main']['pressure']}hPa\n")
+        s += (f"{'Visibility:':^{PADDING}}{data['list'][1]['visibility']/1000}km\n")
+        # s += (f"{'Sunrise:':^{PADDING}}{datetime.datetime.fromtimestamp(data['city']['sunrise'])}\n")
+        # s += (f"{'Sunset:':^{PADDING}}{datetime.datetime.fromtimestamp(data['city']['sunset'])}\n")
         s += change_color(RESET)
     else:
         s += ("Unable to find city")
@@ -175,13 +176,13 @@ def display_history_weather(data):
         weather_code = data['weather'][0]['id']
         s += set_color_on_code(weather_code)
         s += (get_ascii_from_image_url(f"https://openweathermap.org/img/wn/{data['weather'][0]['icon']}@4x.png"))
-        s += (f"{data['weather'][0]['description']}\n")
-        s += (f"{data['main']['temp']}°C\n")
-        s += (f"{data['main']['temp_min']}°C / {data['main']['temp_max']}°C\n")
-        s += (f"Feels like {data['main']['feels_like']}°C\n")
-        s += (f"Humidity {data['main']['humidity']}%\n")
-        s += (f"Wind {data['wind']['speed']}m/s\n")
-        s += (f"Pressure {data['main']['pressure']}hPa\n")
+        s += (f"Description: {data['weather'][0]['description']}\n")
+        s += (f"Temp: {data['main']['temp']}°C\n")
+        s += (f"Min/Max Temp: {data['main']['temp_min']}°C / {data['main']['temp_max']}°C\n")
+        s += (f"Feels like: {data['main']['feels_like']}°C\n")
+        s += (f"Humidity: {data['main']['humidity']}%\n")
+        s += (f"Wind: {data['wind']['speed']}m/s\n")
+        s += (f"Pressure: {data['main']['pressure']}hPa\n")
         s += change_color(RESET)
     else:
         s += ("Unable to find city")
@@ -204,5 +205,5 @@ def history_weather(city, date):
     """Get weather history for a city"""
     #! Date format is YYYY-MM-DD
     data = get_history(city, date)
-    return display_weather(data["list"][0])
+    return display_history_weather(data["list"][0])
 

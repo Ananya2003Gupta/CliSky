@@ -191,44 +191,44 @@ nlu:
 
 - intent: historical_weather_forecast
   examples: |
-    - What was the weather like in [New York](city) on [June 1, 2022](date)?
-    - Can you provide the historical weather forecast for [London](city) on [March 10, 2020](date)?
-    - What were the weather conditions in [Paris](city) on [December 25, 2019](date)?
-    - Give me the historical weather forecast for [San Francisco](city) on [August 5, 2018](date).
-    - What was the temperature in [Sydney](city) on [October 15, 2017](date)?
-    - Was it raining in [Tokyo](city) on [April 1, 2016](date)?
-    - How was the weather in [Miami](city) on [September 20, 2015](date)?
-    - Provide me the historical weather report for [Chicago](city) on [November 30, 2014](date).
-    - What were the weather conditions like in [Berlin](city) on [July 10, 2013](date)?
-    - Can you give me the historical weather forecast for [San Francisco](city) on [February 14, 2012](date)?
-    - What was the weather like in [New York](city) on [June 1, 2022](date)?
-    - Can you provide the historical weather forecast for [London](city) on [March 10, 2020](date)?
-    - What were the weather conditions in [Paris](city) on [December 25, 2019](date)?
-    - Give me the historical weather forecast for [San Francisco](city) on [August 5, 2018](date).
-    - What was the temperature in [Sydney](city) on [October 15, 2017](date)?
-    - Was it raining in [Tokyo](city) on [April 1, 2016](date)?
-    - How was the weather in [Miami](city) on [September 20, 2015](date)?
-    - Provide me the historical weather report for [Chicago](city) on [November 30, 2014](date).
-    - What were the weather conditions like in [Berlin](city) on [July 10, 2013](date)?
-    - Can you give me the historical weather forecast for [San Francisco](city) on [February 14, 2012](date)?
-    - What was the weather like in [New York](city) on [June 1, 2021](date)?
-    - Can you provide the historical weather forecast for [London](city) on [March 10, 2019](date)?
-    - What were the weather conditions in [Paris](city) on [December 25, 2018](date)?
-    - Give me the historical weather forecast for [San Francisco](city) on [August 5, 2017](date).
-    - What was the temperature in [Sydney](city) on [October 15, 2016](date)?
-    - Was it raining in [Tokyo](city) on [April 1, 2015](date)?
-    - How was the weather in [Miami](city) on [September 20, 2014](date)?
-    - Provide me the historical weather report for [Chicago](city) on [November 30, 2013](date).
-    - What were the weather conditions like in [Berlin](city) on [July 10, 2012](date)?
-    - Can you give me the historical weather forecast for [San Francisco](city) on [February 14, 2011](date)?
-    - What was the weather like in [New York](city) on [June 1, 2020](date)?
-    - Can you provide the historical weather forecast for [London](city) on [March 10, 2018](date)?
-    - What were the weather conditions in [Paris](city) on [December 25, 2017](date)?
-    - Give me the historical weather forecast for [San Francisco](city) on [August 5, 2016](date).
-    - What was the temperature in [Sydney](city) on [October 15, 2015](date)?
-    - Was it raining in [Tokyo](city) on [April 1, 2014](date)?
-    - How was the weather in [Miami](city) on [September 20, 2013](date)?
-    - Provide me the historical weather report for [Chicago](city) on [November 30, 2012](date).
+    - What was the weather like in [New York](city) on [June 1 2022](date)?
+    - Can you provide the historical weather forecast for [London](city) on [March 10 2020](date)?
+    - What were the weather conditions in [Paris](city) on [December 25 2019](date)?
+    - Give me the historical weather forecast for [San Francisco](city) on [August 5 2018](date).
+    - What was the temperature in [Sydney](city) on [October 15 2017](date)?
+    - Was it raining in [Tokyo](city) on [April 1 2016](date)?
+    - How was the weather in [Miami](city) on [September 20 2015](date)?
+    - Provide me the historical weather report for [Chicago](city) on [November 30 2014](date).
+    - What were the weather conditions like in [Berlin](city) on [July 10 2013](date)?
+    - Can you give me the historical weather forecast for [San Francisco](city) on [February 14 2012](date)?
+    - What was the weather like in [New York](city) on [June 1 2022](date)?
+    - Can you provide the historical weather forecast for [London](city) on [March 10 2020](date)?
+    - What were the weather conditions in [Paris](city) on [December 25 2019](date)?
+    - Give me the historical weather forecast for [San Francisco](city) on [August 5 2018](date).
+    - What was the temperature in [Sydney](city) on [October 15 2017](date)?
+    - Was it raining in [Tokyo](city) on [April 1 2016](date)?
+    - How was the weather in [Miami](city) on [September 20 2015](date)?
+    - Provide me the historical weather report for [Chicago](city) on [November 30 2014](date).
+    - What were the weather conditions like in [Berlin](city) on [July 10 2013](date)?
+    - Can you give me the historical weather forecast for [San Francisco](city) on [February 14 2012](date)?
+    - What was the weather like in [New York](city) on [June 1 2021](date)?
+    - Can you provide the historical weather forecast for [London](city) on [March 10 2019](date)?
+    - What were the weather conditions in [Paris](city) on [December 25 2018](date)?
+    - Give me the historical weather forecast for [San Francisco](city) on [August 5 2017](date).
+    - What was the temperature in [Sydney](city) on [October 15 2016](date)?
+    - Was it raining in [Tokyo](city) on [April 1 2015](date)?
+    - How was the weather in [Miami](city) on [September 20 2014](date)?
+    - Provide me the historical weather report for [Chicago](city) on [November 30 2013](date).
+    - What were the weather conditions like in [Berlin](city) on [July 10 2012](date)?
+    - Can you give me the historical weather forecast for [San Francisco](city) on [February 14 2011](date)?
+    - What was the weather like in [New York](city) on [June 1 2020](date)?
+    - Can you provide the historical weather forecast for [London](city) on [March 10 2018](date)?
+    - What were the weather conditions in [Paris](city) on [December 25 2017](date)?
+    - Give me the historical weather forecast for [San Francisco](city) on [August 5 2016](date).
+    - What was the temperature in [Sydney](city) on [October 15 2015](date)?
+    - Was it raining in [Tokyo](city) on [April 1 2014](date)?
+    - How was the weather in [Miami](city) on [September 20 2013](date)?
+    - Provide me the historical weather report for [Chicago](city) on [November 30 2012](date).
 
 
 
@@ -273,35 +273,35 @@ nlu:
 
 - regex: date
   examples: |
-    - [June 1, 2022](date)
-    - [March 10, 2020](date)
-    - [December 25, 2019](date)
-    - [August 5, 2018](date)
-    - [October 15, 2017](date)
-    - [April 1, 2016](date)
-    - [September 20, 2015](date)
-    - [November 30, 2014](date)
-    - [July 10, 2013](date)
-    - [February 14, 2012](date)
-    - [June 1, 2021](date)
-    - [March 10, 2019](date)
-    - [December 25, 2018](date)
-    - [August 5, 2017](date)
-    - [October 15, 2016](date)
-    - [April 1, 2015](date)
-    - [September 20, 2014](date)
-    - [November 30, 2013](date)
-    - [July 10, 2012](date)
-    - [February 14, 2011](date)
-    - [June 1, 2020](date)
-    - [March 10, 2018](date)
-    - [December 25, 2017](date)
-    - [August 5, 2016](date)
-    - [October 15, 2015](date)
-    - [April 1, 2014](date)
-    - [September 20, 2013](date)
-    - [November 30, 2012](date)
-    - [July 10, 2011](date)
+    - [June 1 2022](date)
+    - [March 10 2020](date)
+    - [December 25 2019](date)
+    - [August 5 2018](date)
+    - [October 15 2017](date)
+    - [April 1 2016](date)
+    - [September 20 2015](date)
+    - [November 30 2014](date)
+    - [July 10 2013](date)
+    - [February 14 2012](date)
+    - [June 1 2021](date)
+    - [March 10 2019](date)
+    - [December 25 2018](date)
+    - [August 5 2017](date)
+    - [October 15 2016](date)
+    - [April 1 2015](date)
+    - [September 20 2014](date)
+    - [November 30 2013](date)
+    - [July 10 2012](date)
+    - [February 14 2011](date)
+    - [June 1 2020](date)
+    - [March 10 2018](date)
+    - [December 25 2017](date)
+    - [August 5 2016](date)
+    - [October 15 2015](date)
+    - [April 1 2014](date)
+    - [September 20 2013](date)
+    - [November 30 2012](date)
+    - [July 10 2011](date)
 
     
 

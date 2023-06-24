@@ -133,7 +133,7 @@ class ActionGetHistoricalWeatherForecast(Action):
             return []
 
         # # Convert the date to the required format for the API request
-        formatted_date = datetime.datetime.strptime(date, "%M %d, %Y").strftime("%Y-%m-%d")
+        # formatted_date = datetime.datetime.strptime(date, "%M %d %Y").strftime("%Y-%m-%d")
 
         # # Make the API request to fetch historical weather data
         # api_key = "OPENWEATHERMAP_API_KEY"

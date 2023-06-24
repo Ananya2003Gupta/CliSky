@@ -1,0 +1,238 @@
+[
+  {
+    "name": "city",
+    "pattern": "[Ahemdabad](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[Bangalore](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[Berlin](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[Chennai](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[Chicago](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[Hyderabad](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[London](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[Miami](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[Mumbai](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[New Delhi](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[New York](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[Paris](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[Patna](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[Ranchi](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[San Francisco](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[Sydney](city)"
+  },
+  {
+    "name": "city",
+    "pattern": "[Tokyo](city)"
+  },
+  {
+    "name": "date",
+    "pattern": "[April 1, 2014](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[April 1, 2015](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[April 1, 2016](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[August 5, 2016](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[August 5, 2017](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[August 5, 2018](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[December 25, 2017](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[December 25, 2018](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[December 25, 2019](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[February 14, 2011](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[February 14, 2012](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[July 10, 2011](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[July 10, 2012](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[July 10, 2013](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[June 1, 2020](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[June 1, 2021](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[June 1, 2022](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[March 10, 2018](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[March 10, 2019](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[March 10, 2020](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[November 30, 2012](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[November 30, 2013](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[November 30, 2014](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[October 15, 2015](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[October 15, 2016](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[October 15, 2017](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[September 20, 2013](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[September 20, 2014](date)"
+  },
+  {
+    "name": "date",
+    "pattern": "[September 20, 2015](date)"
+  },
+  {
+    "name": "date_period",
+    "pattern": "[3 days](date_period)"
+  },
+  {
+    "name": "date_period",
+    "pattern": "[coming month](date_period)"
+  },
+  {
+    "name": "date_period",
+    "pattern": "[next 10 days](date_period)"
+  },
+  {
+    "name": "date_period",
+    "pattern": "[next Wednesday](date_period)"
+  },
+  {
+    "name": "date_period",
+    "pattern": "[next week](date_period)"
+  },
+  {
+    "name": "date_period",
+    "pattern": "[upcoming weekend](date_period)"
+  },
+  {
+    "name": "day",
+    "pattern": "[Friday](day)"
+  },
+  {
+    "name": "day",
+    "pattern": "[Monday](day)"
+  },
+  {
+    "name": "day",
+    "pattern": "[Saturday](day)"
+  },
+  {
+    "name": "day",
+    "pattern": "[Sunday](day)"
+  },
+  {
+    "name": "day",
+    "pattern": "[Thursday](day)"
+  },
+  {
+    "name": "day",
+    "pattern": "[Tuesday](day)"
+  },
+  {
+    "name": "day",
+    "pattern": "[Wednesday](day)"
+  }
+]
